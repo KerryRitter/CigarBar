@@ -1,0 +1,29 @@
+﻿<ion-navbar>
+    <ion-title>
+        Login
+    </ion-title>
+</ion-navbar>
+
+<ion-content padding>
+    <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input [(ngModel)]="email" type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Password</ion-label>
+        <ion-input [(ngModel)]="password" type="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Confirm Password</ion-label>
+        <ion-input [(ngModel)]="confirmPassword" type="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <button block default (click)="register(email, password, confirmPassword);">Register</button>
+    </ion-item>
+
+    <p style="text-align: center;">Already have an account?</p>
+    <button block light (click)="goToLogin();">Login</button>
+</ion-content>
