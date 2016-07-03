@@ -86,6 +86,8 @@ coverage.xml
 docs/_build/
 ~/
 
+dbsettings.json
 Legacy
 obj
+.vs/
 typings

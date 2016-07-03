@@ -4,7 +4,7 @@ using OpenIddict;
 
 namespace CigarBar.Api.Data
 {
-    public class ApplicationDbContext : OpenIddictContext<ApplicationUser>
+    public class ApplicationDbContext : OpenIddictDbContext<ApplicationUser>
     {
         public DbSet<Cigar> Cigars { get; set; }
         public DbSet<Rating> Ratings { get; set; }

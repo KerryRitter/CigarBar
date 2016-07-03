@@ -21,6 +21,7 @@ namespace CigarBar.Api
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile("dbsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
@@ -46,8 +47,10 @@ namespace CigarBar.Api
                     o.Password.RequiredLength = 6;
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders()
-                .AddOpenIddict();
+                .AddDefaultTokenProviders();
+
+            services.AddOpenIddict<ApplicationUser, ApplicationDbContext>()
+                .DisableHttpsRequirement();
 
             services.AddSingleton(Configuration);
             services.AddSingleton<IContextFactory, ContextFactory>();

@@ -13,7 +13,7 @@ namespace CigarBar.Api.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.0.0-rc2-20896");
+                .HasAnnotation("ProductVersion", "1.0.0-rtm-21431");
 
             modelBuilder.Entity("CigarBar.Api.Data.Models.ApplicationUser", b =>
                 {
@@ -58,6 +58,7 @@ namespace CigarBar.Api.Migrations
                         .HasName("EmailIndex");
 
                     b.HasIndex("NormalizedUserName")
+                        .IsUnique()
                         .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
@@ -80,7 +81,7 @@ namespace CigarBar.Api.Migrations
 
                     b.HasIndex("CreatedById");
 
-                    b.ToTable("Cigar");
+                    b.ToTable("Cigars");
                 });
 
             modelBuilder.Entity("CigarBar.Api.Data.Models.Rating", b =>
@@ -104,7 +105,7 @@ namespace CigarBar.Api.Migrations
 
                     b.HasIndex("CreatedById");
 
-                    b.ToTable("Rating");
+                    b.ToTable("Ratings");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>
@@ -214,9 +215,13 @@ namespace CigarBar.Api.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("OpenIddict.Models.Application", b =>
+            modelBuilder.Entity("OpenIddict.OpenIddictApplication", b =>
                 {
                     b.Property<string>("Id");
+
+                    b.Property<string>("ClientId");
+
+                    b.Property<string>("ClientSecret");
 
                     b.Property<string>("DisplayName");
 
@@ -224,38 +229,88 @@ namespace CigarBar.Api.Migrations
 
                     b.Property<string>("RedirectUri");
 
-                    b.Property<string>("Secret");
-
                     b.Property<string>("Type");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Application");
+                    b.HasIndex("ClientId")
+                        .IsUnique();
+
+                    b.ToTable("OpenIddictApplications");
+                });
+
+            modelBuilder.Entity("OpenIddict.OpenIddictAuthorization", b =>
+                {
+                    b.Property<string>("Id");
+
+                    b.Property<string>("Scope");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("OpenIddictAuthorizations");
+                });
+
+            modelBuilder.Entity("OpenIddict.OpenIddictScope", b =>
+                {
+                    b.Property<string>("Id");
+
+                    b.Property<string>("Description");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OpenIddictScopes");
+                });
+
+            modelBuilder.Entity("OpenIddict.OpenIddictToken", b =>
+                {
+                    b.Property<string>("Id");
+
+                    b.Property<string>("ApplicationId");
+
+                    b.Property<string>("AuthorizationId");
+
+                    b.Property<string>("Type");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationId");
+
+                    b.HasIndex("AuthorizationId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("OpenIddictTokens");
                 });
 
             modelBuilder.Entity("CigarBar.Api.Data.Models.Cigar", b =>
                 {
-                    b.HasOne("CigarBar.Api.Data.Models.ApplicationUser")
-                        .WithMany()
+                    b.HasOne("CigarBar.Api.Data.Models.ApplicationUser", "CreatedBy")
+                        .WithMany("CigarsCreated")
                         .HasForeignKey("CreatedById");
                 });
 
             modelBuilder.Entity("CigarBar.Api.Data.Models.Rating", b =>
                 {
-                    b.HasOne("CigarBar.Api.Data.Models.Cigar")
+                    b.HasOne("CigarBar.Api.Data.Models.Cigar", "Cigar")
                         .WithMany()
                         .HasForeignKey("CigarId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("CigarBar.Api.Data.Models.ApplicationUser")
-                        .WithMany()
+                    b.HasOne("CigarBar.Api.Data.Models.ApplicationUser", "CreatedBy")
+                        .WithMany("Ratings")
                         .HasForeignKey("CreatedById");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole")
-                        .WithMany()
+                        .WithMany("Claims")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -263,7 +318,7 @@ namespace CigarBar.Api.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserClaim<string>", b =>
                 {
                     b.HasOne("CigarBar.Api.Data.Models.ApplicationUser")
-                        .WithMany()
+                        .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -271,7 +326,7 @@ namespace CigarBar.Api.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserLogin<string>", b =>
                 {
                     b.HasOne("CigarBar.Api.Data.Models.ApplicationUser")
-                        .WithMany()
+                        .WithMany("Logins")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -279,14 +334,36 @@ namespace CigarBar.Api.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserRole<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole")
-                        .WithMany()
+                        .WithMany("Users")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("CigarBar.Api.Data.Models.ApplicationUser")
-                        .WithMany()
+                        .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("OpenIddict.OpenIddictAuthorization", b =>
+                {
+                    b.HasOne("CigarBar.Api.Data.Models.ApplicationUser")
+                        .WithMany("Authorizations")
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("OpenIddict.OpenIddictToken", b =>
+                {
+                    b.HasOne("OpenIddict.OpenIddictApplication")
+                        .WithMany("Tokens")
+                        .HasForeignKey("ApplicationId");
+
+                    b.HasOne("OpenIddict.OpenIddictAuthorization")
+                        .WithMany("Tokens")
+                        .HasForeignKey("AuthorizationId");
+
+                    b.HasOne("CigarBar.Api.Data.Models.ApplicationUser")
+                        .WithMany("Tokens")
+                        .HasForeignKey("UserId");
                 });
         }
     }
