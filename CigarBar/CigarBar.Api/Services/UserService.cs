@@ -32,6 +32,11 @@ namespace CigarBar.Api.Services
         {
             var user = GetUserPrincipal();
 
+            if (user?.Identity?.Name == null)
+            {
+                return null;
+            }
+
             using (var context = _contextFactory.Create())
             {
                 return context.Users.FirstOrDefault(u => u.UserName == user.Identity.Name);

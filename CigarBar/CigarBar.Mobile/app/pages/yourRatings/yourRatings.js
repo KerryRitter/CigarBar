@@ -9,33 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var ionic_angular_1 = require("ionic-angular");
-var findCigar_1 = require("../addRating/findCigar");
-var yourRatings_1 = require("../yourRatings/yourRatings");
-var Home = (function () {
-    function Home(nav) {
+var ratingService_1 = require("../../services/ratingService");
+var YourRatings = (function () {
+    function YourRatings(nav, navParams, _ratingService) {
         this.nav = nav;
-        this.pages = [
-            { title: "Add Rating", component: findCigar_1.FindCigar },
-            { title: "Your Ratings", component: yourRatings_1.YourRatings }
-        ];
-        this.rootPage = yourRatings_1.YourRatings;
+        this.navParams = navParams;
+        this._ratingService = _ratingService;
+        this.ratings = null;
+        this.nav = nav;
     }
-    Object.defineProperty(Home, "parameters", {
+    Object.defineProperty(YourRatings, "parameters", {
         get: function () {
-            return [[ionic_angular_1.NavController]];
+            return [[ionic_angular_1.NavController], [ionic_angular_1.NavParams], [ratingService_1.RatingService]];
         },
         enumerable: true,
         configurable: true
     });
-    Home.prototype.openPage = function (page) {
-        this.nav.setRoot(page.component);
+    YourRatings.prototype.ngOnInit = function () {
     };
-    Home = __decorate([
+    YourRatings = __decorate([
         ionic_angular_1.Page({
-            templateUrl: "build/pages/home/home.html"
+            templateUrl: "build/pages/yourRatings/yourRatings.html"
         }), 
-        __metadata('design:paramtypes', [ionic_angular_1.NavController])
-    ], Home);
-    return Home;
+        __metadata('design:paramtypes', [ionic_angular_1.NavController, ionic_angular_1.NavParams, ratingService_1.RatingService])
+    ], YourRatings);
+    return YourRatings;
 }());
-exports.Home = Home;
+exports.YourRatings = YourRatings;

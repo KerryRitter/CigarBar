@@ -13,6 +13,8 @@ namespace CigarBar.Api.Data.Models
         public DateTime CreatedAt { get; set; }
         public string CreatedById { get; set; }
 
+        public bool Approved { get; set; }
+
         public ApplicationUser CreatedBy { get; set; }
     }
 }

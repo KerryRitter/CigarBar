@@ -39,18 +39,25 @@ namespace CigarBar.Api
                 .AddDbContext<ApplicationDbContext>(options =>
                     options.UseNpgsql(Configuration["Data:DefaultConnection"]));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>(o => {
-                    o.Password.RequireDigit = false;
-                    o.Password.RequireLowercase = false;
-                    o.Password.RequireUppercase = false;
-                    o.Password.RequireNonAlphanumeric = false;
-                    o.Password.RequiredLength = 6;
-                })
+            services.AddIdentity<ApplicationUser, IdentityRole>(o =>
+            {
+                o.Password.RequireDigit = false;
+                o.Password.RequireLowercase = false;
+                o.Password.RequireUppercase = false;
+                o.Password.RequireNonAlphanumeric = false;
+                o.Password.RequiredLength = 6;
+            })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
             services.AddOpenIddict<ApplicationUser, ApplicationDbContext>()
-                .DisableHttpsRequirement();
+                .EnableTokenEndpoint("/connect/token")
+                .AllowPasswordFlow()
+                .DisableHttpsRequirement()
+                .Configure(o =>
+                {
+                    o.AccessTokenLifetime = new System.TimeSpan(3650, 0, 0, 0);
+                });
 
             services.AddSingleton(Configuration);
             services.AddSingleton<IContextFactory, ContextFactory>();
@@ -71,10 +78,10 @@ namespace CigarBar.Api
                         .AllowAnyOrigin()
             );
 
-            //app.UseOAuthValidation();
-            app.UseMvc();
+            app.UseIdentity();
+            app.UseOAuthValidation();
             app.UseOpenIddict();
-
+            app.UseMvc();
         }
     }
 }

@@ -9,33 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var ionic_angular_1 = require("ionic-angular");
-var findCigar_1 = require("../addRating/findCigar");
-var yourRatings_1 = require("../yourRatings/yourRatings");
-var Home = (function () {
-    function Home(nav) {
+var RatingDetails = (function () {
+    function RatingDetails(nav, navParams) {
         this.nav = nav;
-        this.pages = [
-            { title: "Add Rating", component: findCigar_1.FindCigar },
-            { title: "Your Ratings", component: yourRatings_1.YourRatings }
-        ];
-        this.rootPage = yourRatings_1.YourRatings;
+        this.navParams = navParams;
+        this.nav = nav;
+        this.rating = {
+            value: 3,
+            details: "",
+            cigar: navParams.get("cigar")
+        };
     }
-    Object.defineProperty(Home, "parameters", {
+    Object.defineProperty(RatingDetails, "parameters", {
         get: function () {
-            return [[ionic_angular_1.NavController]];
+            return [[ionic_angular_1.NavController], [ionic_angular_1.NavParams]];
         },
         enumerable: true,
         configurable: true
     });
-    Home.prototype.openPage = function (page) {
-        this.nav.setRoot(page.component);
-    };
-    Home = __decorate([
+    RatingDetails = __decorate([
         ionic_angular_1.Page({
-            templateUrl: "build/pages/home/home.html"
+            templateUrl: "build/pages/addRating/ratingDetails.html"
         }), 
-        __metadata('design:paramtypes', [ionic_angular_1.NavController])
-    ], Home);
-    return Home;
+        __metadata('design:paramtypes', [ionic_angular_1.NavController, ionic_angular_1.NavParams])
+    ], RatingDetails);
+    return RatingDetails;
 }());
-exports.Home = Home;
+exports.RatingDetails = RatingDetails;

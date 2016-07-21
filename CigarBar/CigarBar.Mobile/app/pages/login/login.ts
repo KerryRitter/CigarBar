@@ -1,6 +1,7 @@
 ﻿import { Page, NavController, NavParams, Alert } from "ionic-angular";
 import { OpenIdAuthService } from "../../services/openIdAuthService";
 import { Register } from "../register/register";
+import { Home } from "../home/home";
 
 @Page({
     templateUrl: "build/pages/login/login.html"
@@ -22,20 +23,21 @@ export class Login {
     }
 
     public login(username: string, password: string) {
-        this._authService.getNewToken(username, password)
-            .then(token => {
-                this.nav.present(Alert.create({
-                    title: "It worked!",
-                    buttons: ["OK"]
-                }));
-            })
-            .catch(token => {
-                this.nav.present(Alert.create({
-                    title: "Error",
-                    subTitle: token.json().error_description,
-                    buttons: ["OK"]
-                }));
-            });
+        this.nav.push(Home);
+        //this._authService.getNewToken(username, password)
+        //    .then(token => {
+        //        this.nav.present(Alert.create({
+        //            title: "It worked!",
+        //            buttons: ["OK"]
+        //        }));
+        //    })
+        //    .catch(token => {
+        //        this.nav.present(Alert.create({
+        //            title: "Error",
+        //            subTitle: token.json().error_description,
+        //            buttons: ["OK"]
+        //        }));
+        //    });
     }
 
     public goToRegister() {

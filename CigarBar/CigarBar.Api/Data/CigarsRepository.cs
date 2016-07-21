@@ -31,7 +31,8 @@ namespace CigarBar.Api.Data
             {
                 return context.Cigars
                     .Where(c => searchWords.Any(s => c.Brand.ToUpper().Contains(s)) 
-                             && searchWords.Any(s => c.Name.ToUpper().Contains(s)))
+                             && searchWords.Any(s => c.Name.ToUpper().Contains(s))
+                             && c.Approved)
                     .ToList()
                     .Select(c => _cigarMapper.Map(c));
             }
@@ -39,10 +40,20 @@ namespace CigarBar.Api.Data
 
         public void Create(CigarDto dto, ApplicationUser user)
         {
+            if (user == null)
+            {
+                throw new Exception("User must be specified.");
+            }
+            if (dto == null)
+            {
+                throw new Exception("Cigar must be specified.");
+            }
+
             using (var context = _contextFactory.Create())
             {
                 var entity = _cigarMapper.Map(dto, user);
                 entity.CreatedAt = DateTime.Now;
+                entity.Approved = false;
 
                 context.Cigars.Add(entity);
 

@@ -1,7 +1,7 @@
 ﻿import {ViewChild} from "@angular/core";
 import {Page, NavController} from "ionic-angular";
 import {StatusBar} from "ionic-native";
-import {AddRating} from "../addRating/addRating";
+import {FindCigar} from "../addRating/findCigar";
 import {YourRatings} from "../yourRatings/yourRatings";
 
 
@@ -20,7 +20,7 @@ export class Home {
         public nav: NavController
     ) {
         this.pages = [
-            { title: "Add Rating", component: AddRating },
+            { title: "Add Rating", component: FindCigar },
             { title: "Your Ratings", component: YourRatings }
         ];
 

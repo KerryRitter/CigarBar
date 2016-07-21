@@ -1,0 +1,32 @@
+<ion-navbar *navbar>
+    <button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Add Ratings</ion-title>
+</ion-navbar>
+
+<ion-content padding class="page1">
+    <ion-card>
+        <ion-card-header>
+            Rate {{rating.cigar.name}} by {{rating.cigar.brand}} ({{rating.value}})
+        </ion-card-header>
+        <ion-card-content>
+            <ion-icon name="star" (click)="rating.value = 1;" style="font-size: 40px;"></ion-icon>
+            <ion-icon name="star" (click)="rating.value = 2;" style="font-size: 40px;"></ion-icon>
+            <ion-icon name="star" (click)="rating.value = 3;" style="font-size: 40px;"></ion-icon>
+            <ion-icon name="star" (click)="rating.value = 4;" style="font-size: 40px;"></ion-icon>
+            <ion-icon name="star" (click)="rating.value = 5;" style="font-size: 40px;"></ion-icon>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header>
+            Details
+        </ion-card-header>
+        <ion-card-content>
+            <ion-textarea [(ngModel)]="rating.details" style="height: 150px; border: 3px solid #EEE;"></ion-textarea>
+        </ion-card-content>
+    </ion-card>
+
+    <button full>Save</button>
+</ion-content>
