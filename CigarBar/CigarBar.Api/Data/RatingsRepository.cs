@@ -4,6 +4,7 @@ using System.Linq;
 using CigarBar.Api.Data.Models;
 using CigarBar.Api.Mappers;
 using CigarBar.Api.Models.Dto;
+using Microsoft.EntityFrameworkCore;
 
 namespace CigarBar.Api.Data
 {
@@ -30,9 +31,10 @@ namespace CigarBar.Api.Data
             using (var context = _contextFactory.Create())
             {
                 return context.Ratings
-                        .Where(c => c.CreatedById == user.Id)
+                        .Include(r => r.Cigar)
+                        .Where(r => r.CreatedById == user.Id)
                         .ToList()
-                        .Select(c => _ratingMapper.Map(c));
+                        .Select(r => _ratingMapper.Map(r));
             }
         }
 

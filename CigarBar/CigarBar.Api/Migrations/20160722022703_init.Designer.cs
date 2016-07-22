@@ -8,13 +8,14 @@ using CigarBar.Api.Data;
 namespace CigarBar.Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20160703160447_Init")]
-    partial class Init
+    [Migration("20160722022703_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.0.0-rtm-21431");
+                .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("CigarBar.Api.Data.Models.ApplicationUser", b =>
                 {
@@ -69,6 +70,8 @@ namespace CigarBar.Api.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("Approved");
 
                     b.Property<string>("Brand");
 

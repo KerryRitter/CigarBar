@@ -13,7 +13,8 @@ namespace CigarBar.Api.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.0.0-rtm-21431");
+                .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("CigarBar.Api.Data.Models.ApplicationUser", b =>
                 {
@@ -68,6 +69,8 @@ namespace CigarBar.Api.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("Approved");
 
                     b.Property<string>("Brand");
 

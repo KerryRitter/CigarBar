@@ -22,8 +22,7 @@ namespace CigarBar.Api.Mappers
                 Id = cigar.Id,
                 Name = cigar.Name,
                 Brand = cigar.Brand,
-                CreatedBy = currentUser,
-                CreatedById = currentUser?.Id
+                CreatedById = currentUser.Id
             };
         }
     }

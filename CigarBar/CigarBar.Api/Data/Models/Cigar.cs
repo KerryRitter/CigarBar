@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CigarBar.Api.Data.Models
 {
@@ -15,6 +16,7 @@ namespace CigarBar.Api.Data.Models
 
         public bool Approved { get; set; }
 
+        [ForeignKey(nameof(CreatedById))]
         public ApplicationUser CreatedBy { get; set; }
     }
 }

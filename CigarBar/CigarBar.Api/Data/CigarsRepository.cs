@@ -30,9 +30,9 @@ namespace CigarBar.Api.Data
             using (var context = _contextFactory.Create())
             {
                 return context.Cigars
-                    .Where(c => searchWords.Any(s => c.Brand.ToUpper().Contains(s)) 
-                             && searchWords.Any(s => c.Name.ToUpper().Contains(s))
-                             && c.Approved)
+                    .Where(c => c.Approved &&
+                        (searchWords.Any(s => c.Brand.ToUpper().Contains(s))
+                        || searchWords.Any(s => c.Name.ToUpper().Contains(s))))
                     .ToList()
                     .Select(c => _cigarMapper.Map(c));
             }

@@ -19,7 +19,7 @@ namespace CigarBar.Api.Mappers
             };
         }
 
-        public Rating Map(Dto dto, Cigar cigar = null, ApplicationUser currentUser = null)
+        public Rating Map(Dto dto, Cigar cigar, ApplicationUser currentUser)
         {
             return new Rating
             {
@@ -27,9 +27,7 @@ namespace CigarBar.Api.Mappers
                 Details = dto.Details,
                 LastModifiedAt = dto.LastModifiedAt,
                 CigarId = dto.Cigar.Id,
-                Cigar = cigar,
-                CreatedBy = currentUser,
-                CreatedById = currentUser?.Id
+                CreatedById = currentUser.Id
             };
         }
     }

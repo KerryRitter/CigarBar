@@ -33,11 +33,9 @@ namespace CigarBar.Api
             services.AddCors();
 
             services.AddMvc();
-            
-            services.AddEntityFramework()
-                .AddEntityFrameworkNpgsql()
-                .AddDbContext<ApplicationDbContext>(options =>
-                    options.UseNpgsql(Configuration["Data:DefaultConnection"]));
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration["Data:DefaultConnection"]));
 
             services.AddIdentity<ApplicationUser, IdentityRole>(o =>
             {
@@ -54,6 +52,7 @@ namespace CigarBar.Api
                 .EnableTokenEndpoint("/connect/token")
                 .AllowPasswordFlow()
                 .DisableHttpsRequirement()
+                .AddEphemeralSigningKey()
                 .Configure(o =>
                 {
                     o.AccessTokenLifetime = new System.TimeSpan(3650, 0, 0, 0);
