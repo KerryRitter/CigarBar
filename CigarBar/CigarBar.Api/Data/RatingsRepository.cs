@@ -11,8 +11,8 @@ namespace CigarBar.Api.Data
     public interface IRatingsRepository
     {
         IEnumerable<RatingDto> FindAll(ApplicationUser user);
-        void Create(RatingDto dto, ApplicationUser user);
-        void Update(int id, RatingDto dto, ApplicationUser user);
+        RatingDto Create(RatingDto dto, ApplicationUser user);
+        RatingDto Update(int id, RatingDto dto, ApplicationUser user);
         void Delete(int id, ApplicationUser user);
     }
 
@@ -38,7 +38,19 @@ namespace CigarBar.Api.Data
             }
         }
 
-        public void Create(RatingDto dto, ApplicationUser user)
+        public RatingDto Find(ApplicationUser user, int id)
+        {
+            using (var context = _contextFactory.Create())
+            {
+                var entity = context.Ratings
+                        .Include(r => r.Cigar)
+                        .FirstOrDefault(r => r.CreatedById == user.Id);
+
+                return _ratingMapper.Map(entity);
+            }
+        }
+
+        public RatingDto Create(RatingDto dto, ApplicationUser user)
         {
             using (var context = _contextFactory.Create())
             {
@@ -47,13 +59,15 @@ namespace CigarBar.Api.Data
                 var entity = _ratingMapper.Map(dto, cigar, user);
                 entity.LastModifiedAt = DateTime.Now;
 
-                context.Ratings.Add(entity);
+                var entry = context.Ratings.Add(entity);
 
                 context.SaveChanges();
+
+                return Find(user, entry.Entity.Id);
             }
         }
 
-        public void Update(int id, RatingDto dto, ApplicationUser user)
+        public RatingDto Update(int id, RatingDto dto, ApplicationUser user)
         {
             using (var context = _contextFactory.Create())
             {
@@ -63,13 +77,13 @@ namespace CigarBar.Api.Data
 
                 rating.Details = dto.Details;
                 rating.Value = dto.Value;
-                rating.Cigar = cigar;
                 rating.CigarId = dto.Cigar.Id;
                 rating.LastModifiedAt = DateTime.Now;
-                rating.CreatedBy = user;
                 rating.CreatedById = user.Id;
 
                 context.SaveChanges();
+
+                return Find(user, id);
             }
         }
 

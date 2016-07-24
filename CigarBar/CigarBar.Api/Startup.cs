@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -27,7 +26,6 @@ namespace CigarBar.Api
             Configuration = builder.Build();
         }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
@@ -65,7 +63,6 @@ namespace CigarBar.Api
             services.AddSingleton<IRatingsRepository, RatingsRepository>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
@@ -73,8 +70,8 @@ namespace CigarBar.Api
 
             app.UseCors(builder =>
                 builder.AllowAnyHeader()
-                        .AllowAnyMethod()
-                        .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin()
             );
 
             app.UseIdentity();

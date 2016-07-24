@@ -33,11 +33,11 @@ namespace CigarBar.Api.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody]CigarDto dto)
+        public CigarDto Post([FromBody]CigarDto dto)
         {
             var currentUser = _userService.GetApplicationUser();
             
-            _cigarsRepository.Create(dto, currentUser);
+            return _cigarsRepository.Create(dto, currentUser);
         }
     }
 }

@@ -12,6 +12,7 @@ namespace CigarBar.Api.Mappers
         {
             return new Dto
             {
+                Id = rating.Id,
                 Value = rating.Value,
                 Details = rating.Details,
                 Cigar = _cigarMapper.Map(rating.Cigar),
@@ -23,6 +24,7 @@ namespace CigarBar.Api.Mappers
         {
             return new Rating
             {
+                Id = dto.Id,
                 Value = dto.Value,
                 Details = dto.Details,
                 LastModifiedAt = dto.LastModifiedAt,

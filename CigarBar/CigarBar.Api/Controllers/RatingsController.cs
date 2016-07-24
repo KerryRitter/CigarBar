@@ -20,7 +20,6 @@ namespace CigarBar.Api.Controllers
             _userService = userService;
         }
 
-        // GET api/values
         [HttpGet]
         public IEnumerable<RatingDto> Get()
         {
@@ -28,23 +27,20 @@ namespace CigarBar.Api.Controllers
             return _ratingsRepository.FindAll(currentUser);
         }
 
-        // POST api/values
         [HttpPost]
-        public void Post([FromBody]RatingDto dto)
+        public RatingDto Post([FromBody]RatingDto dto)
         {
             var currentUser = _userService.GetApplicationUser();
-            _ratingsRepository.Create(dto, currentUser);
+            return _ratingsRepository.Create(dto, currentUser);
         }
 
-        // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]RatingDto dto)
+        public RatingDto Put(int id, [FromBody]RatingDto dto)
         {
             var currentUser = _userService.GetApplicationUser();
-            _ratingsRepository.Update(id, dto, currentUser);
+            return _ratingsRepository.Update(id, dto, currentUser);
         }
 
-        // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

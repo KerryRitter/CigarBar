@@ -10,7 +10,7 @@ namespace CigarBar.Api.Data
     public interface ICigarsRepository
     {
         IEnumerable<CigarDto> Find(string search);
-        void Create(CigarDto dto, ApplicationUser user);
+        CigarDto Create(CigarDto dto, ApplicationUser user);
     }
 
     public class CigarsRepository: ICigarsRepository
@@ -38,7 +38,7 @@ namespace CigarBar.Api.Data
             }
         }
 
-        public void Create(CigarDto dto, ApplicationUser user)
+        public CigarDto Create(CigarDto dto, ApplicationUser user)
         {
             if (user == null)
             {
@@ -55,9 +55,11 @@ namespace CigarBar.Api.Data
                 entity.CreatedAt = DateTime.Now;
                 entity.Approved = false;
 
-                context.Cigars.Add(entity);
+                var entry = context.Cigars.Add(entity);
 
                 context.SaveChanges();
+
+                return _cigarMapper.Map(entry.Entity);
             }
         }
     }
