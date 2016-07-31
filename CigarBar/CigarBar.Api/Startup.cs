@@ -20,9 +20,10 @@ namespace CigarBar.Api
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile("dbsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddEnvironmentVariables();
+                .AddEnvironmentVariables()
+                .AddUserSecrets();
+
             Configuration = builder.Build();
         }
 
@@ -33,7 +34,7 @@ namespace CigarBar.Api
             services.AddMvc();
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration["Data:DefaultConnection"]));
+                options.UseSqlServer(Configuration["DefaultConnection"]));
 
             services.AddIdentity<ApplicationUser, IdentityRole>(o =>
             {

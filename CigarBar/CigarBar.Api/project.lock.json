@@ -702,6 +702,26 @@
           "lib/netstandard1.5/Microsoft.AspNetCore.Razor.Runtime.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Razor.Tools/1.0.0-preview2-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Razor.Runtime": "1.0.0",
+          "Microsoft.DotNet.Cli.Utils": "1.0.0-preview2-003121",
+          "Microsoft.DotNet.ProjectModel.Loader": "1.0.0-preview2-003121",
+          "Microsoft.Extensions.CommandLineUtils": "1.0.0",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0",
+          "Microsoft.NETCore.App": "1.0.0",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Diagnostics.Process": "4.1.0",
+          "System.Runtime.Serialization.Primitives": "4.1.1"
+        },
+        "compile": {
+          "lib/netcoreapp1.0/dotnet-razor-tooling.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp1.0/dotnet-razor-tooling.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Routing/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -945,6 +965,19 @@
         },
         "runtime": {
           "lib/netstandard1.6/Microsoft.DotNet.ProjectModel.dll": {}
+        }
+      },
+      "Microsoft.DotNet.ProjectModel.Loader/1.0.0-preview2-003121": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.DotNet.ProjectModel": "1.0.0-rc3-003121",
+          "System.Runtime.Loader": "4.0.0"
+        },
+        "compile": {
+          "lib/netstandard1.6/Microsoft.DotNet.ProjectModel.Loader.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.6/Microsoft.DotNet.ProjectModel.Loader.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore/1.0.0": {
@@ -1193,6 +1226,18 @@
         },
         "runtime": {
           "lib/netstandard1.3/Microsoft.Extensions.Configuration.Json.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.UserSecrets/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Json": "1.0.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
         }
       },
       "Microsoft.Extensions.DependencyInjection/1.0.0": {
@@ -1479,6 +1524,24 @@
         },
         "runtime": {
           "lib/netstandard1.0/Microsoft.Extensions.Primitives.dll": {}
+        }
+      },
+      "Microsoft.Extensions.SecretManager.Tools/1.0.0-preview2-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.CommandLineUtils": "1.0.0",
+          "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0",
+          "Microsoft.Extensions.Logging": "1.0.0",
+          "Microsoft.NETCore.App": "1.0.0",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0",
+          "System.Runtime.Serialization.Primitives": "4.1.1"
+        },
+        "compile": {
+          "lib/netcoreapp1.0/dotnet-user-secrets.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp1.0/dotnet-user-secrets.dll": {}
         }
       },
       "Microsoft.Extensions.WebEncoders/1.0.0": {
@@ -2035,10 +2098,10 @@
           "lib/netstandard1.0/NuGet.Versioning.dll": {}
         }
       },
-      "OpenIddict/1.0.0-alpha2-0393": {
+      "OpenIddict/1.0.0-alpha2-0396": {
         "type": "package",
         "dependencies": {
-          "OpenIddict.EntityFramework": "1.0.0-alpha2-0393"
+          "OpenIddict.EntityFramework": "1.0.0-alpha2-0396"
         },
         "compile": {
           "lib/netstandard1.4/OpenIddict.dll": {}
@@ -2047,7 +2110,7 @@
           "lib/netstandard1.4/OpenIddict.dll": {}
         }
       },
-      "OpenIddict.Core/1.0.0-alpha2-0393": {
+      "OpenIddict.Core/1.0.0-alpha2-0396": {
         "type": "package",
         "dependencies": {
           "AspNet.Security.OpenIdConnect.Server": "1.0.0-beta6-final",
@@ -2063,11 +2126,11 @@
           "lib/netstandard1.4/OpenIddict.Core.dll": {}
         }
       },
-      "OpenIddict.EntityFramework/1.0.0-alpha2-0393": {
+      "OpenIddict.EntityFramework/1.0.0-alpha2-0396": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0",
-          "OpenIddict.Core": "1.0.0-alpha2-0393"
+          "OpenIddict.Core": "1.0.0-alpha2-0396"
         },
         "compile": {
           "lib/netstandard1.4/OpenIddict.EntityFramework.dll": {}
@@ -4877,6 +4940,26 @@
           "lib/netstandard1.5/Microsoft.AspNetCore.Razor.Runtime.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Razor.Tools/1.0.0-preview2-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Razor.Runtime": "1.0.0",
+          "Microsoft.DotNet.Cli.Utils": "1.0.0-preview2-003121",
+          "Microsoft.DotNet.ProjectModel.Loader": "1.0.0-preview2-003121",
+          "Microsoft.Extensions.CommandLineUtils": "1.0.0",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0",
+          "Microsoft.NETCore.App": "1.0.0",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Diagnostics.Process": "4.1.0",
+          "System.Runtime.Serialization.Primitives": "4.1.1"
+        },
+        "compile": {
+          "lib/netcoreapp1.0/dotnet-razor-tooling.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp1.0/dotnet-razor-tooling.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Routing/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -5120,6 +5203,19 @@
         },
         "runtime": {
           "lib/netstandard1.6/Microsoft.DotNet.ProjectModel.dll": {}
+        }
+      },
+      "Microsoft.DotNet.ProjectModel.Loader/1.0.0-preview2-003121": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.DotNet.ProjectModel": "1.0.0-rc3-003121",
+          "System.Runtime.Loader": "4.0.0"
+        },
+        "compile": {
+          "lib/netstandard1.6/Microsoft.DotNet.ProjectModel.Loader.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.6/Microsoft.DotNet.ProjectModel.Loader.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore/1.0.0": {
@@ -5368,6 +5464,18 @@
         },
         "runtime": {
           "lib/netstandard1.3/Microsoft.Extensions.Configuration.Json.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.UserSecrets/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Json": "1.0.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
         }
       },
       "Microsoft.Extensions.DependencyInjection/1.0.0": {
@@ -5654,6 +5762,24 @@
         },
         "runtime": {
           "lib/netstandard1.0/Microsoft.Extensions.Primitives.dll": {}
+        }
+      },
+      "Microsoft.Extensions.SecretManager.Tools/1.0.0-preview2-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.CommandLineUtils": "1.0.0",
+          "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0",
+          "Microsoft.Extensions.Logging": "1.0.0",
+          "Microsoft.NETCore.App": "1.0.0",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0",
+          "System.Runtime.Serialization.Primitives": "4.1.1"
+        },
+        "compile": {
+          "lib/netcoreapp1.0/dotnet-user-secrets.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp1.0/dotnet-user-secrets.dll": {}
         }
       },
       "Microsoft.Extensions.WebEncoders/1.0.0": {
@@ -6213,10 +6339,10 @@
           "lib/netstandard1.0/NuGet.Versioning.dll": {}
         }
       },
-      "OpenIddict/1.0.0-alpha2-0393": {
+      "OpenIddict/1.0.0-alpha2-0396": {
         "type": "package",
         "dependencies": {
-          "OpenIddict.EntityFramework": "1.0.0-alpha2-0393"
+          "OpenIddict.EntityFramework": "1.0.0-alpha2-0396"
         },
         "compile": {
           "lib/netstandard1.4/OpenIddict.dll": {}
@@ -6225,7 +6351,7 @@
           "lib/netstandard1.4/OpenIddict.dll": {}
         }
       },
-      "OpenIddict.Core/1.0.0-alpha2-0393": {
+      "OpenIddict.Core/1.0.0-alpha2-0396": {
         "type": "package",
         "dependencies": {
           "AspNet.Security.OpenIdConnect.Server": "1.0.0-beta6-final",
@@ -6241,11 +6367,11 @@
           "lib/netstandard1.4/OpenIddict.Core.dll": {}
         }
       },
-      "OpenIddict.EntityFramework/1.0.0-alpha2-0393": {
+      "OpenIddict.EntityFramework/1.0.0-alpha2-0396": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0",
-          "OpenIddict.Core": "1.0.0-alpha2-0393"
+          "OpenIddict.Core": "1.0.0-alpha2-0396"
         },
         "compile": {
           "lib/netstandard1.4/OpenIddict.EntityFramework.dll": {}
@@ -9265,6 +9391,26 @@
           "lib/netstandard1.5/Microsoft.AspNetCore.Razor.Runtime.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Razor.Tools/1.0.0-preview2-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Razor.Runtime": "1.0.0",
+          "Microsoft.DotNet.Cli.Utils": "1.0.0-preview2-003121",
+          "Microsoft.DotNet.ProjectModel.Loader": "1.0.0-preview2-003121",
+          "Microsoft.Extensions.CommandLineUtils": "1.0.0",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0",
+          "Microsoft.NETCore.App": "1.0.0",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Diagnostics.Process": "4.1.0",
+          "System.Runtime.Serialization.Primitives": "4.1.1"
+        },
+        "compile": {
+          "lib/netcoreapp1.0/dotnet-razor-tooling.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp1.0/dotnet-razor-tooling.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Routing/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -9508,6 +9654,19 @@
         },
         "runtime": {
           "lib/netstandard1.6/Microsoft.DotNet.ProjectModel.dll": {}
+        }
+      },
+      "Microsoft.DotNet.ProjectModel.Loader/1.0.0-preview2-003121": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.DotNet.ProjectModel": "1.0.0-rc3-003121",
+          "System.Runtime.Loader": "4.0.0"
+        },
+        "compile": {
+          "lib/netstandard1.6/Microsoft.DotNet.ProjectModel.Loader.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.6/Microsoft.DotNet.ProjectModel.Loader.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore/1.0.0": {
@@ -9756,6 +9915,18 @@
         },
         "runtime": {
           "lib/netstandard1.3/Microsoft.Extensions.Configuration.Json.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.UserSecrets/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Json": "1.0.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
         }
       },
       "Microsoft.Extensions.DependencyInjection/1.0.0": {
@@ -10042,6 +10213,24 @@
         },
         "runtime": {
           "lib/netstandard1.0/Microsoft.Extensions.Primitives.dll": {}
+        }
+      },
+      "Microsoft.Extensions.SecretManager.Tools/1.0.0-preview2-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.CommandLineUtils": "1.0.0",
+          "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0",
+          "Microsoft.Extensions.Logging": "1.0.0",
+          "Microsoft.NETCore.App": "1.0.0",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0",
+          "System.Runtime.Serialization.Primitives": "4.1.1"
+        },
+        "compile": {
+          "lib/netcoreapp1.0/dotnet-user-secrets.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp1.0/dotnet-user-secrets.dll": {}
         }
       },
       "Microsoft.Extensions.WebEncoders/1.0.0": {
@@ -10604,10 +10793,10 @@
           "lib/netstandard1.0/NuGet.Versioning.dll": {}
         }
       },
-      "OpenIddict/1.0.0-alpha2-0393": {
+      "OpenIddict/1.0.0-alpha2-0396": {
         "type": "package",
         "dependencies": {
-          "OpenIddict.EntityFramework": "1.0.0-alpha2-0393"
+          "OpenIddict.EntityFramework": "1.0.0-alpha2-0396"
         },
         "compile": {
           "lib/netstandard1.4/OpenIddict.dll": {}
@@ -10616,7 +10805,7 @@
           "lib/netstandard1.4/OpenIddict.dll": {}
         }
       },
-      "OpenIddict.Core/1.0.0-alpha2-0393": {
+      "OpenIddict.Core/1.0.0-alpha2-0396": {
         "type": "package",
         "dependencies": {
           "AspNet.Security.OpenIdConnect.Server": "1.0.0-beta6-final",
@@ -10632,11 +10821,11 @@
           "lib/netstandard1.4/OpenIddict.Core.dll": {}
         }
       },
-      "OpenIddict.EntityFramework/1.0.0-alpha2-0393": {
+      "OpenIddict.EntityFramework/1.0.0-alpha2-0396": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0",
-          "OpenIddict.Core": "1.0.0-alpha2-0393"
+          "OpenIddict.Core": "1.0.0-alpha2-0396"
         },
         "compile": {
           "lib/netstandard1.4/OpenIddict.EntityFramework.dll": {}
@@ -13553,6 +13742,22 @@
         "lib/netstandard1.5/Microsoft.AspNetCore.Razor.Runtime.xml"
       ]
     },
+    "Microsoft.AspNetCore.Razor.Tools/1.0.0-preview2-final": {
+      "sha512": "gUFr7P3hVd7ILgY5Q5AnBHxatElop3kpn7uYX7kPVktvWMkL0HK2DKw66hqYTy5BNz41BTuxCn0Foa7aKwvTVA==",
+      "type": "package",
+      "path": "Microsoft.AspNetCore.Razor.Tools/1.0.0-preview2-final",
+      "files": [
+        "Microsoft.AspNetCore.Razor.Tools.1.0.0-preview2-final.nupkg.sha512",
+        "Microsoft.AspNetCore.Razor.Tools.nuspec",
+        "lib/net451/dotnet-razor-tooling.exe",
+        "lib/net451/dotnet-razor-tooling.xml",
+        "lib/netcoreapp1.0/dotnet-razor-tooling.dll",
+        "lib/netcoreapp1.0/dotnet-razor-tooling.runtimeconfig.json",
+        "lib/netcoreapp1.0/dotnet-razor-tooling.xml",
+        "runtimes/win7-x64/lib/net451/dotnet-razor-tooling.exe",
+        "runtimes/win7-x86/lib/net451/dotnet-razor-tooling.exe"
+      ]
+    },
     "Microsoft.AspNetCore.Routing/1.0.0": {
       "sha512": "NvFvRtYHXWjBbXz5/7F7JDNcdhrE+tG1/Q9R6LmMxFgu8tkl1bqtFZQbMy17FYFkmm8Fn/T81blRGE2nxCbDRA==",
       "type": "package",
@@ -13756,6 +13961,16 @@
         "Microsoft.DotNet.ProjectModel.nuspec",
         "lib/net451/Microsoft.DotNet.ProjectModel.dll",
         "lib/netstandard1.6/Microsoft.DotNet.ProjectModel.dll"
+      ]
+    },
+    "Microsoft.DotNet.ProjectModel.Loader/1.0.0-preview2-003121": {
+      "sha512": "dpGbzFkk6se2DLkKjyycSBNlFFzjZWc3gxrviVq6UyOJDDUBKuiOk0si41dkRtfIGHB7dcPBlZHXUiEC7tPhKQ==",
+      "type": "package",
+      "path": "Microsoft.DotNet.ProjectModel.Loader/1.0.0-preview2-003121",
+      "files": [
+        "Microsoft.DotNet.ProjectModel.Loader.1.0.0-preview2-003121.nupkg.sha512",
+        "Microsoft.DotNet.ProjectModel.Loader.nuspec",
+        "lib/netstandard1.6/Microsoft.DotNet.ProjectModel.Loader.dll"
       ]
     },
     "Microsoft.EntityFrameworkCore/1.0.0": {
@@ -13973,6 +14188,19 @@
         "lib/netstandard1.3/Microsoft.Extensions.Configuration.Json.xml"
       ]
     },
+    "Microsoft.Extensions.Configuration.UserSecrets/1.0.0": {
+      "sha512": "2d4ycB89yzoDR40kfoK7iSCrW67mExz4RLm84JFDcgOoMYr1K4vgWjfL2YUjXqjKVNBi6USwhIDkCKXRYWLQ2Q==",
+      "type": "package",
+      "path": "Microsoft.Extensions.Configuration.UserSecrets/1.0.0",
+      "files": [
+        "Microsoft.Extensions.Configuration.UserSecrets.1.0.0.nupkg.sha512",
+        "Microsoft.Extensions.Configuration.UserSecrets.nuspec",
+        "lib/net451/Microsoft.Extensions.Configuration.UserSecrets.dll",
+        "lib/net451/Microsoft.Extensions.Configuration.UserSecrets.xml",
+        "lib/netstandard1.3/Microsoft.Extensions.Configuration.UserSecrets.dll",
+        "lib/netstandard1.3/Microsoft.Extensions.Configuration.UserSecrets.xml"
+      ]
+    },
     "Microsoft.Extensions.DependencyInjection/1.0.0": {
       "sha512": "zdtkiZNV6LB8xtpmfyUjP/9N9ZCL/ydQ+0bfjun38fbrk+MDEm9M2yeLzRdq+OIt5xExw/KU04wFaVwJ1bhQPg==",
       "type": "package",
@@ -14183,6 +14411,18 @@
         "Microsoft.Extensions.Primitives.nuspec",
         "lib/netstandard1.0/Microsoft.Extensions.Primitives.dll",
         "lib/netstandard1.0/Microsoft.Extensions.Primitives.xml"
+      ]
+    },
+    "Microsoft.Extensions.SecretManager.Tools/1.0.0-preview2-final": {
+      "sha512": "Aj5RMwY32UQEFYpImOhttNYmgsy1wGOpbNffy6bh8i8JJcv13cJwjK3s552CFT2Kwst9xSzy1WKlD7IwVCEkgA==",
+      "type": "package",
+      "path": "Microsoft.Extensions.SecretManager.Tools/1.0.0-preview2-final",
+      "files": [
+        "Microsoft.Extensions.SecretManager.Tools.1.0.0-preview2-final.nupkg.sha512",
+        "Microsoft.Extensions.SecretManager.Tools.nuspec",
+        "lib/netcoreapp1.0/dotnet-user-secrets.dll",
+        "lib/netcoreapp1.0/dotnet-user-secrets.runtimeconfig.json",
+        "lib/netcoreapp1.0/dotnet-user-secrets.xml"
       ]
     },
     "Microsoft.Extensions.WebEncoders/1.0.0": {
@@ -14695,12 +14935,12 @@
         "lib/netstandard1.0/NuGet.Versioning.xml"
       ]
     },
-    "OpenIddict/1.0.0-alpha2-0393": {
-      "sha512": "zn35zjOMdJGVQIy9gVnim0Fr/2GJIx5grrQIp91tEEmSRVCMoh5HTT7gTK4zPg6Uwuj3RwrG0ng2I9bZu+zOHA==",
+    "OpenIddict/1.0.0-alpha2-0396": {
+      "sha512": "zTeJY6YYcOAbXsYK4nYvC9SOC9z214M87sXcftJRRTgbQUCpgbt9QrTqsVhzL36I4L98rkZ3fehckYTP4MuNkA==",
       "type": "package",
-      "path": "OpenIddict/1.0.0-alpha2-0393",
+      "path": "OpenIddict/1.0.0-alpha2-0396",
       "files": [
-        "OpenIddict.1.0.0-alpha2-0393.nupkg.sha512",
+        "OpenIddict.1.0.0-alpha2-0396.nupkg.sha512",
         "OpenIddict.nuspec",
         "lib/net451/OpenIddict.dll",
         "lib/net451/OpenIddict.xml",
@@ -14708,12 +14948,12 @@
         "lib/netstandard1.4/OpenIddict.xml"
       ]
     },
-    "OpenIddict.Core/1.0.0-alpha2-0393": {
-      "sha512": "rPjsfTHz3C8pzOxZz6sBR2gOcAwkfUxGueoP+lrk9i5CQA1Th+GAnnDMML0UUvdnwxSg7gd2mkJAqxfHajg8sw==",
+    "OpenIddict.Core/1.0.0-alpha2-0396": {
+      "sha512": "b2ypM1Jgh5rAQ6TWfHNp0QQ2orgtu10W29X+XflQNrO6jCdfFtK6KKCJx2Ara5sMuFSmdTrenXJzalljA8BMqA==",
       "type": "package",
-      "path": "OpenIddict.Core/1.0.0-alpha2-0393",
+      "path": "OpenIddict.Core/1.0.0-alpha2-0396",
       "files": [
-        "OpenIddict.Core.1.0.0-alpha2-0393.nupkg.sha512",
+        "OpenIddict.Core.1.0.0-alpha2-0396.nupkg.sha512",
         "OpenIddict.Core.nuspec",
         "lib/net451/OpenIddict.Core.dll",
         "lib/net451/OpenIddict.Core.xml",
@@ -14721,12 +14961,12 @@
         "lib/netstandard1.4/OpenIddict.Core.xml"
       ]
     },
-    "OpenIddict.EntityFramework/1.0.0-alpha2-0393": {
-      "sha512": "PlusLLxkeOSxXWnyMY59EPUidUy9nXXOwK9daovUYXDkPqbFzsIPkWmzWCpro7W8rs+d4Mabfo74Ku7X4ReGtA==",
+    "OpenIddict.EntityFramework/1.0.0-alpha2-0396": {
+      "sha512": "1Thjh27s4knhHJ17vemRTp8GZfe1BRgh1XuxAFEDSUeXs5Nm2Qutv6/R8wDog+NiJDmOajY1U7vAdCrKiYHPGg==",
       "type": "package",
-      "path": "OpenIddict.EntityFramework/1.0.0-alpha2-0393",
+      "path": "OpenIddict.EntityFramework/1.0.0-alpha2-0396",
       "files": [
-        "OpenIddict.EntityFramework.1.0.0-alpha2-0393.nupkg.sha512",
+        "OpenIddict.EntityFramework.1.0.0-alpha2-0396.nupkg.sha512",
         "OpenIddict.EntityFramework.nuspec",
         "lib/net451/OpenIddict.EntityFramework.dll",
         "lib/net451/OpenIddict.EntityFramework.xml",
@@ -20195,6 +20435,7 @@
       "AspNet.Security.OAuth.Validation >= 1.0.0-alpha2-final",
       "Microsoft.AspNetCore.Cors >= 1.0.0",
       "Microsoft.AspNetCore.Mvc >= 1.0.0",
+      "Microsoft.AspNetCore.Razor.Tools >= 1.0.0-preview2-final",
       "Microsoft.AspNetCore.Server.Kestrel >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 1.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 1.0.0",
@@ -20206,6 +20447,7 @@
       "Microsoft.Extensions.Logging >= 1.0.0",
       "Microsoft.Extensions.Logging.Console >= 1.0.0",
       "Microsoft.Extensions.Logging.Debug >= 1.0.0",
+      "Microsoft.Extensions.SecretManager.Tools >= 1.0.0-preview2-final",
       "Microsoft.NETCore.App >= 1.0.0-*",
       "OpenIddict >= 1.0.0-*"
     ],

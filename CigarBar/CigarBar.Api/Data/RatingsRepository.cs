@@ -93,6 +93,7 @@ namespace CigarBar.Api.Data
             {
                 var rating = context.Ratings.First(r => r.Id == id && r.CreatedById == user.Id);
                 context.Ratings.Remove(rating);
+                context.SaveChanges();
             }
         }
     }

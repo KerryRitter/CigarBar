@@ -21,7 +21,7 @@ namespace CigarBar.Api.Data
         {
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
 
-            var cxn = _config["Data:DefaultConnection"];
+            var cxn = _config["DefaultConnection"];
             optionsBuilder.UseSqlServer(cxn);
 
             return new ApplicationDbContext(optionsBuilder.Options);
