@@ -21,8 +21,12 @@ namespace CigarBar.Api
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddEnvironmentVariables()
-                .AddUserSecrets();
+                .AddEnvironmentVariables();
+
+            if (env.IsDevelopment())
+            {
+                builder.AddUserSecrets();
+            }
 
             Configuration = builder.Build();
         }

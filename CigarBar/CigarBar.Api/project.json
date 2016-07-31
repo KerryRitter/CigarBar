@@ -48,13 +48,14 @@
   },
   "runtimes": {
     "win10-x64": {},
-    "win8-x64": {}
+    "win8-x64": {},
+    "ubuntu.14.04-x64": {}
   },
   "runtimeOptions": {
     "gcServer": true
   },
   "scripts": {
-    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
+    "postpublish": [ ]
   },
   "tools": {
     "Microsoft.EntityFrameworkCore.Tools": {
