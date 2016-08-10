@@ -14,7 +14,7 @@ IonicApplication.config(["$urlRouterProvider", function ($urlRouterProvider) {
     $urlRouterProvider.otherwise("/login");
 }]);
 
-IonicApplication.value("baseUrl", "http://localhost:5000/");
+IonicApplication.value("baseUrl", "http://cigarbar.space/");
 
 @Run(IonicApplication)
 class IonicApplicationRun {
@@ -34,7 +34,7 @@ class IonicApplicationRun {
             }
 
             if ((window as any).StatusBar) {
-                (window as any).StatusBar.styleHex("#550d0d");
+                (window as any).StatusBar.styleDefault();
             }
         });
     }

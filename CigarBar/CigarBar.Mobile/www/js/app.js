@@ -1197,7 +1197,7 @@ System.register("ts/app", ["ionic-typescript/decorators/index", "ionic-typescrip
             IonicApplication.config(["$urlRouterProvider", function ($urlRouterProvider) {
                     $urlRouterProvider.otherwise("/login");
                 }]);
-            IonicApplication.value("baseUrl", "http://localhost:5000/");
+            IonicApplication.value("baseUrl", "http://cigarbar.space/");
             IonicApplicationRun = (function () {
                 function IonicApplicationRun(ionicPlatform, openIddictConfig, _baseUrl) {
                     this.ionicPlatform = ionicPlatform;
@@ -1212,7 +1212,7 @@ System.register("ts/app", ["ionic-typescript/decorators/index", "ionic-typescrip
                             window.cordova.plugins.disableScroll(true);
                         }
                         if (window.StatusBar) {
-                            window.StatusBar.styleHex("#550d0d");
+                            window.StatusBar.styleDefault();
                         }
                     });
                 }

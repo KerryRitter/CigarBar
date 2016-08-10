@@ -14,6 +14,7 @@ namespace CigarBar.Api
     public class Startup
     {
         public IConfigurationRoot Configuration { get; }
+        public IHostingEnvironment HostingEnvironment { get; }
 
         public Startup(IHostingEnvironment env)
         {
@@ -29,6 +30,7 @@ namespace CigarBar.Api
             }
 
             Configuration = builder.Build();
+            HostingEnvironment = env;
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -51,15 +53,19 @@ namespace CigarBar.Api
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddOpenIddict<ApplicationUser, ApplicationDbContext>()
+            var openIddict = services.AddOpenIddict<ApplicationUser, ApplicationDbContext>()
                 .EnableTokenEndpoint("/connect/token")
                 .AllowPasswordFlow()
-                .DisableHttpsRequirement()
                 .AddEphemeralSigningKey()
                 .Configure(o =>
                 {
                     o.AccessTokenLifetime = new System.TimeSpan(3650, 0, 0, 0);
                 });
+
+            if (HostingEnvironment.IsDevelopment())
+            {
+                openIddict.DisableHttpsRequirement();
+            }
 
             services.AddSingleton(Configuration);
             services.AddSingleton<IContextFactory, ContextFactory>();
