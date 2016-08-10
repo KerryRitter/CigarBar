@@ -34,7 +34,7 @@ class IonicApplicationRun {
             }
 
             if ((window as any).StatusBar) {
-                (window as any).StatusBar.styleDefault();
+                (window as any).StatusBar.styleHex("#550d0d");
             }
         });
     }

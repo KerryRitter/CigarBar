@@ -1212,7 +1212,7 @@ System.register("ts/app", ["ionic-typescript/decorators/index", "ionic-typescrip
                             window.cordova.plugins.disableScroll(true);
                         }
                         if (window.StatusBar) {
-                            window.StatusBar.styleDefault();
+                            window.StatusBar.styleHex("#550d0d");
                         }
                     });
                 }
